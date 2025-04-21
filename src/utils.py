@@ -1,0 +1,140 @@
+import pandas as pd
+import numpy as np
+import scipy.sparse as sp
+# install pybiomart
+try:
+    from pybiomart import Server
+    BIOMART_AVAILABLE = True
+except ImportError:
+    BIOMART_AVAILABLE = False
+
+def select_control_mask(adata, obs_key: str, control_values):
+    """
+    Build a boolean mask selecting control (diploid) cells:
+      obs_key       – name of a column in adata.obs
+      control_values – value or list of values to treat as 'diploid'
+    Returns: mask (pd.Series of bool)
+    """
+    vals = control_values if isinstance(control_values, (list,tuple)) else [control_values]
+    return adata.obs[obs_key].isin(vals)
+
+
+def ensure_gene_coords(adata, gtf_df: pd.DataFrame=None):
+    """
+    1. If 'chromosome','start','end' are present in adata.var, do nothing.
+    2. Else merge with user‑supplied gtf_df.
+    3. Else fetch missing via pybiomart (if installed).
+    Drops any genes still lacking coords.
+    """
+    var = adata.var.copy()
+    needed = {'chromosome','start','end'} - set(var.columns)
+    if not needed:
+        return adata
+
+    # try GTF
+    if gtf_df is not None:
+        merged = var.merge(
+            gtf_df[['gene_name','chrom','start','end']],
+            left_index=True, right_on='gene_name', how='left'
+        ).set_index(var.index)
+        for src,dst in [('chrom','chromosome'),('start','start'),('end','end')]:
+            adata.var[dst] = merged[src]
+
+    # fetch missing via BioMart
+    missing = adata.var['chromosome'].isna()
+    if missing.any() and BIOMART_AVAILABLE:
+        server = Server()
+        ds = server.marts["ENSEMBL_MART_ENSEMBL"].datasets["hsapiens_gene_ensembl"]
+        bm = ds.query(
+            attributes=['external_gene_name','chromosome_name','start_position','end_position'],
+            filters={'external_gene_name': list(adata.var_names[missing])}
+        )
+        bm = bm.rename(columns={
+            'external_gene_name':'gene_name',
+            'chromosome_name':'chrom',
+            'start_position':'start',
+            'end_position':'end'
+        })
+        merged2 = adata.var.merge(bm, left_index=True, right_on='gene_name', how='left').set_index(var.index)
+        for src,dst in [('chrom','chromosome'),('start','start'),('end','end')]:
+            adata.var[dst] = merged2[src].fillna(adata.var[dst])
+
+    # drop genes still missing coords
+    to_drop = adata.var['chromosome'].isna()
+    if to_drop.any():
+        adata = adata[:, ~to_drop].copy()
+
+    return adata
+
+
+def normalize_expr(adata, control_adata, method='zscore'):
+    """
+    Gene‐specific normalization against diploid control:
+      - 'zscore':      (X - μ) / σ
+      - 'log2_ratio':  log2((X+1)/(μ+1))
+    Works robustly whether .X is dense, sparse, or backed.
+    """
+    # 1) grab control matrix, densify if needed
+    Xc_raw = control_adata.X
+    if sp.issparse(Xc_raw):
+        Xc = Xc_raw.toarray()
+    else:
+        Xc = np.array(Xc_raw)
+
+    # 2) compute per-gene mean & std
+    mu    = Xc.mean(axis=0)
+    sigma = Xc.std(axis=0)
+    sigma[sigma == 0] = 1.0
+
+    # 3) grab test matrix, densify the same way
+    X_raw = adata.X
+    if sp.issparse(X_raw):
+        X = X_raw.toarray()
+    else:
+        X = np.array(X_raw)
+
+    # 4) normalize
+    if method == 'zscore':
+        return (X - mu) / sigma
+    elif method == 'log2_ratio':
+        return np.log2((X + 1) / (mu + 1))
+    else:
+        raise ValueError(f"Unknown normalization method {method}")
+
+
+def sliding_window_segments(Z, var_df, window=50, gain_thr=0.2, loss_thr=-0.2):
+    segments = []
+    var = var_df.copy()
+    var['gene_idx'] = np.arange(len(var))
+
+    for chrom, sub in var.groupby('chromosome'):
+        sub = sub.sort_values('start')
+        idxs = sub['gene_idx'].values
+        avg  = Z[:, idxs].mean(axis=0)
+        mv   = pd.Series(avg).rolling(window, center=True, min_periods=1).mean().values
+
+        state = np.zeros_like(mv, int)
+        state[mv>=gain_thr] =  1
+        state[mv<=loss_thr] = -1
+
+        prev = state[0]; start_i = 0
+        for i, s in enumerate(state[1:], start=1):
+            if s != prev:
+                if prev!=0:
+                    segments.append({
+                        'chrom': chrom,
+                        'start': int(sub.iloc[start_i]['start']),
+                        'end':   int(sub.iloc[i-1]['end']),
+                        'type':  'gain' if prev>0 else 'loss'
+                    })
+                start_i = i; prev = s
+        if prev!=0:
+            segments.append({
+                'chrom': chrom,
+                'start': int(sub.iloc[start_i]['start']),
+                'end':   int(sub.iloc[len(state)-1]['end']),
+                'type':  'gain' if prev>0 else 'loss'
+            })
+
+    return segments
+
