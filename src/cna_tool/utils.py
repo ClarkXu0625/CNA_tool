@@ -183,3 +183,19 @@ def sliding_window_segments(Z, var_df, window=50, gain_thr=0.2, loss_thr=-0.2):
 
     return segments
 
+def fetch_gene_coordinates_if_missing(adata, gtf_df):
+    """
+    Adds missing gene coordinate columns ('chromosome', 'start', 'end') to adata.var
+    by matching gene names to a provided GTF dataframe.
+    """
+    if not all(c in adata.var.columns for c in ['gene_name']):
+        raise ValueError("adata.var must contain 'gene_name' column.")
+
+    gtf_df = gtf_df.drop_duplicates('gene_name')
+    merged = adata.var.merge(gtf_df[['gene_name', 'chromosome', 'start', 'end']],
+                             on='gene_name', how='left')
+
+    for col in ['chromosome', 'start', 'end']:
+        adata.var[col] = merged[col].values
+
+    return adata
