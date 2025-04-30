@@ -10,9 +10,9 @@ def infer_cnas_from_scrna(
     diploid_labels=[''],
     control_mask=None,
     gtf_df=None,
-    window=100,
-    gain_thr=0.2,
-    loss_thr=-0.2,
+    window=50,
+    gain_thr=0.15,
+    loss_thr=-0.15,
     norm_method='zscore',
     require_gene_coords=True
 ):
