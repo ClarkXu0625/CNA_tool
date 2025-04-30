@@ -58,3 +58,8 @@ def annotation_preprocess(adata, n_neighbors=20, n_pcs=10, plot=True):
     if plot:
         sc.pl.umap(data_processed,color=['leiden'], alpha=.75, s=15, legend_loc='on data')
     return data_processed
+
+def simple_preprocess(adata):
+    sc.pp.normalize_total(adata, target_sum=1e4)
+    sc.pp.log1p(adata)
+    return adata

@@ -1,4 +1,4 @@
-from utils import ensure_gene_coords, normalize_expr, sliding_window_segments
+from .utils import ensure_gene_coords, normalize_expr, sliding_window_segments
 import pandas as pd
 
 class CNAInferer:
@@ -67,7 +67,7 @@ def test_pipeline_on_slice(
     gain_thr: float = 0.2,
     loss_thr: float = -0.2,
     norm_method: str = 'zscore'
-):
+    ):
     """
     1) Pick control cells via adata.obs[obs_key_control] ∈ control_values
     2) Pick test  cells via adata.obs[obs_key_test]    ∈  test_values
