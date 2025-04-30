@@ -59,7 +59,7 @@ def infer_cnas_from_scrna(
             - adata.uns['cna_segments']: list of detected CNA segments
             - adata.obs['cna_profile']: per-cell CNA genotype string
     """
-    # Step 1: Ensure gene coordinates are available
+    # Ensure gene coordinates are available
     if require_gene_coords and not all(col in adata.var.columns for col in ['chromosome', 'start', 'end']):
         if gtf_df is not None:
             print("Mapping gene coordinates from provided GTF...")
@@ -67,7 +67,7 @@ def infer_cnas_from_scrna(
         else:
             raise ValueError("Gene coordinates missing in adata.var and no GTF provided.")
 
-    # Step 2: Select control vs. test cells
+    # Select control vs. test cells
     if control_mask is not None:
         control = adata[control_mask].copy()
         test = adata[~control_mask].copy()
@@ -83,7 +83,7 @@ def infer_cnas_from_scrna(
         test = adata[~ctrl_mask].copy()
         print(f"[info] No control mask provided. Using largest cluster ('{largest_group}') as control.")
 
-    # Step 3: Run inference
+    # Run inference
     inferer = CNAInferer(
         adata=test,
         control_adata=control,
@@ -95,7 +95,7 @@ def infer_cnas_from_scrna(
     )
     updated_test = inferer.infer()
 
-    # Step 4: Attach output to original AnnData
+    # Attach output to original AnnData
     adata.obs['cna_profile'] = ''
     adata.obs.loc[updated_test.obs_names, 'cna_profile'] = updated_test.obs['cna_profile']
     adata.uns['cna_segments'] = updated_test.uns.get('cna_segments', [])
