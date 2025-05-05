@@ -67,7 +67,7 @@ def ensure_gene_coords(adata, gtf_df: pd.DataFrame=None):
     return adata
 
 
-def normalize_expr(adata, control_adata, method='zscore'):
+def normalize_expr(adata, control_adata, method='log2_ratio'):
     """
     Gene‐specific normalization against diploid control:
       - 'zscore':      (X - μ) / σ

@@ -9,7 +9,7 @@ class CNAInferer:
                  window=50,
                  gain_thr=0.2,
                  loss_thr=-0.2,
-                 norm_method='zscore'):
+                 norm_method='log2_ratio'):
         # 1) ensure coords
         self.adata = ensure_gene_coords(adata.copy(), gtf_df)
         # 2) align control
@@ -66,7 +66,7 @@ def test_pipeline_on_slice(
     window: int = 20,
     gain_thr: float = 0.2,
     loss_thr: float = -0.2,
-    norm_method: str = 'zscore'
+    norm_method: str = 'log2_ratio'
     ):
     """
     1) Pick control cells via adata.obs[obs_key_control] ∈ control_values
