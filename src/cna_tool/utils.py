@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import scipy.sparse as sp
+import scanpy as sc
 # install pybiomart
 try:
     from pybiomart import Server
@@ -199,3 +200,29 @@ def fetch_gene_coordinates_if_missing(adata, gtf_df):
         adata.var[col] = merged[col].values
 
     return adata
+
+def map_gene_coordinates(adata, labeled_adata):
+    
+    print(f"Numer of genes in dataset: {adata.var.shape[0]}")
+    adata_with_chr = labeled_adata.copy()
+    adata_clean = adata.copy()
+    # Step 1: Gene name overlap
+    genes_with_chr = set(adata_with_chr.var_names)
+    genes_clean = set(adata_clean.var_names)
+
+    common_genes = genes_with_chr.intersection(genes_clean)
+    print(f"Number of common genes: {len(common_genes)}")
+
+    # Step 2: Create a DataFrame of gene position info from adata_with_chr
+    gene_pos_df = adata_with_chr.var.loc[:, ['chromosome', 'start', 'end']]
+    gene_pos_df = gene_pos_df.loc[gene_pos_df.index.isin(common_genes)]
+
+    # Reindex to match the order of adata_clean's var (only for overlapping genes)
+    gene_pos_df = gene_pos_df.reindex(adata_clean.var_names)
+
+    # Assign chromosome info to adata_clean
+    adata_clean.var['chromosome'] = gene_pos_df['chromosome']
+    adata_clean.var['start'] = gene_pos_df['start']
+    adata_clean.var['end'] = gene_pos_df['end']
+    return adata_clean
+
