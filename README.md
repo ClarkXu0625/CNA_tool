@@ -40,6 +40,20 @@ Dataset being used in this projects are dataset [3](https://www.ncbi.nlm.nih.gov
 )
 The data could found in [Google Drive](https://drive.google.com/drive/folders/10LGU_CHLHJkABwpyEqT1XuFGGef-xL7m?usp=sharing)
 
+### Data description
+- processed_data/
+  - labeled_data/
+    - num3_adata_filtered.h5ad
+    - num4_human_adata_filtered.h5ad
+    - num6_adata_filtered.h5ad
+    - num7_adata_filtered.h5ad
+  - PBMC_simulated_cnas_041025.h5ad
+  - num3_adata.h5ad
+  - num4_adata.h5ad
+  - num6_adata.h5ad
+  - num7_adata.h5ad
+
+
 
 
 ## APIs
@@ -54,6 +68,6 @@ The data could found in [Google Drive](https://drive.google.com/drive/folders/10
 | utils.normalize_expr, 
 | utils.sliding_window_segments, 
 | utils.fetch_gene_coordinates_if_missing, 
-| utils.map_gene_coordinates
+| utils.map_gene_coordinates | Function to 
 | preprocessing.annotation_preprocess, 
 | preprocessing.simple_preprocess
