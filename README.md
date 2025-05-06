@@ -22,8 +22,12 @@ A minimal working example of using the tool:
 ## code Structure
 
 - cna_tool/
-    - \__init__.py
+    - \_\_init__.py
     - infer.py
-├── preprocessing.py
-├── cna_inference.py
-├── utils.py
+    - preprocessing.py
+    - cna_inference.py
+    - utils.py
+    - 
+<pre lang="md"> ``` cna_tool/ ├── __init__.py ├── infer.py # Top-level wrapper: infer_cnas_from_scrna ├── cna_inference.py # Core CNAInferer class ├── preprocessing.py # Gene filtering, normalization, GTF loading ├── utils.py # Helper functions: sliding windows, formatting └── data/ └── gencode.v47.annotation.gtf # Optional GTF file tests/ ├── test_inference.py └── example_usage.ipynb README.md setup.py ``` </pre>
+
+# APIs
