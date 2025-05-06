@@ -37,3 +37,9 @@ A minimal working example of using the tool:
 | ---------- | -------------------------- |
 | CNAInferer | main object |
 | CNAInferer.infer() | Infer CNA from given adata |
+| utils.select_control_mask(adata, obs_key: str, control_values) | Build a boolean mask selecting control (diploid) cells| 
+| utils.ensure_gene_coords, 
+| utils.normalize_expr, 
+| utils.sliding_window_segments, 
+| utils.fetch_gene_coordinates_if_missing, 
+| utils.map_gene_coordinates
