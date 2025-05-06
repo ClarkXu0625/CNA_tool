@@ -22,7 +22,7 @@ A minimal working example of using the tool:
 ## code Structure
 
 - cna_tool/
-    - \_\_init__.py
+    - \__init__.py
     - infer.py
 ├── preprocessing.py
 ├── cna_inference.py
