@@ -7,4 +7,23 @@ Install environment:
 $ conda create -n cna_tool python=3.11
 $ conda activate cna_tool
 $ cd CNA_tool
-$ pip install scanpy python-igraph leidenalg scipy numpy umap-learn leidenalg matplotlib scikit-learn
+$ pip install scanpy python-igraph leidenalg scipy numpy umap-learn leidenalg matplotlib scikit-learn mygene pandas
+
+
+A minimal working example of using the tool:
+
+    import scanpy as sc
+    from cna_tool import infer_cnas_from_scrna
+
+    adata = sc.read_h5ad("PBMC_simulated_cnas.h5ad")
+    adata = infer_cnas_from_scrna(adata)
+
+
+File Structure
+cna_tool/
+│
+├── __init__.py
+├── infer.py
+├── preprocessing.py
+├── cna_inference.py
+├── utils.py
