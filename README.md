@@ -35,6 +35,7 @@ A minimal working example of using the tool:
 
 | Function/Classes | Parameters | Description | 
 | ---------- | ---- | -------------------------- |
+| infer.infer_cnas_from_scrna | adata, \n cna_label_col=None, diploid_labels=[''], control_mask=None, gtf_df=None, window=50, gain_thr=0.15, loss_thr=-0.15, norm_method='zscore', require_gene_coords=True| Infers DNA copy number alterations (CNAs) from an AnnData object containing scRNA-seq data. |
 | CNAInferer | adata, control_adata |main object |
 | CNAInferer.infer | self |Infer CNA from given adata |
 | utils.select_control_mask| adata, obs_key: str, control_values | Build a boolean mask selecting control (diploid) cells| 
@@ -43,3 +44,5 @@ A minimal working example of using the tool:
 | utils.sliding_window_segments, 
 | utils.fetch_gene_coordinates_if_missing, 
 | utils.map_gene_coordinates
+| preprocessing.annotation_preprocess, 
+| preprocessing.simple_preprocess
