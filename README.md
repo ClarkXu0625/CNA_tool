@@ -12,13 +12,13 @@ A tool to infer CNAs from scRNA-seq data
 
 A minimal working example of using the tool:
 
-'''
+
     import scanpy as sc
     from cna_tool import infer_cnas_from_scrna
 
     adata = sc.read_h5ad("PBMC_simulated_cnas.h5ad")
     adata = infer_cnas_from_scrna(adata)
-'''
+
 
 ## code Structure
 
@@ -28,7 +28,12 @@ A minimal working example of using the tool:
     - preprocessing.py
     - cna_inference.py
     - utils.py
-    - 
+    - tl/
 
 
 ## APIs
+
+| Function/Classes | Description | 
+| ---------- | -------------------------- |
+| CNAInferer | main object |
+| CNAInferer.infer() | Infer CNA from given adata |
