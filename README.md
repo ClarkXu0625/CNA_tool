@@ -2,7 +2,7 @@
 A tool to infer CNAs from scRNA-seq data
 
 
-Install environment:
+## Setup:
 
     conda create -n cna_tool python=3.11
     conda activate cna_tool
@@ -19,11 +19,11 @@ A minimal working example of using the tool:
     adata = infer_cnas_from_scrna(adata)
 
 
-File Structure
-cna_tool/
-│
-├── __init__.py
-├── infer.py
+## code Structure
+
+- cna_tool/
+    - __init__.py
+    - infer.py
 ├── preprocessing.py
 ├── cna_inference.py
 ├── utils.py
