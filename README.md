@@ -35,17 +35,10 @@ A minimal working example of using the tool:
 
 | Function/Classes | Parameters | Description | 
 | ---------- | ---- | -------------------------- |
-| CNAInferer | self,
-                 adata,
-                 control_adata,
-                 gtf_df: pd.DataFrame=None,
-                 window=50,
-                 gain_thr=0.2,
-                 loss_thr=-0.2,
-                 norm_method='log2_ratio' |main object |
-| CNAInferer.infer() | self |Infer CNA from given adata |
-| utils.select_control_mask(adata, obs_key: str, control_values) | Build a boolean mask selecting control (diploid) cells| 
-| utils.ensure_gene_coords, 
+| CNAInferer | adata, control_adata |main object |
+| CNAInferer.infer | self |Infer CNA from given adata |
+| utils.select_control_mask| adata, obs_key: str, control_values | Build a boolean mask selecting control (diploid) cells| 
+| utils.ensure_gene_coords | adata, gtf_df: pd.DataFrame=None | If 'chromosome','start','end' are present in adata.var, do nothing. Else merge with user‑supplied gtf_df. Else fetch missing via pybiomart (if installed). Drops any genes still lacking coords.|
 | utils.normalize_expr, 
 | utils.sliding_window_segments, 
 | utils.fetch_gene_coordinates_if_missing, 
