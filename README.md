@@ -66,9 +66,8 @@ The data could found in [Google Drive](https://drive.google.com/drive/folders/10
 | CNAInferer.infer | self |Infer CNA from given adata |
 | utils.select_control_mask| adata, obs_key: str, control_values | Build a boolean mask selecting control (diploid) cells| 
 | utils.ensure_gene_coords | adata, gtf_df: pd.DataFrame=None | If 'chromosome','start','end' are present in adata.var, do nothing. Else merge with user‑supplied gtf_df. Else fetch missing via pybiomart (if installed). Drops any genes still lacking coords.|
-| utils.normalize_expr, 
-| utils.sliding_window_segments | Z, var_df, window=50, gain_thr=0.2, loss_thr=-0.2 | Identifies copy number alteration (CNA) segments from smoothed, average z-scored expression 
-    across genes using a sliding window approach. |
+| utils.normalize_expr | adata, control_adata, method='log2_ratio' | Gene‐specific normalization against diploid control, method could be either zscore or log2_ratio |
+| utils.sliding_window_segments | Z, var_df, window=50, gain_thr=0.2, loss_thr=-0.2 | Identifies copy number alteration (CNA) segments from smoothed, average z-scored expression across genes using a sliding window approach. |
 | utils.fetch_gene_coordinates_if_missing | adata, gtf_df | Map the gene coordinate from provided df generated from gtf file, creating .var columns "chromosome", "start", and "end" |
 | utils.map_gene_coordinates | adata, adata | Map the gene coordinate from one adata (labeled) to another, creating .var columns "chromosome", "start", and "end" |
 | preprocessing.annotation_preprocess | adata | full preprocess pipeline: filter by counts and mt content; normalize; perform clustering, and umap |
