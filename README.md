@@ -21,8 +21,8 @@ A minimal working example of using the tool:
 
 
 ## code Structure
-
-- cna_tool/
+CNA_Tool
+- src/cna_tool/
     - \_\_init__.py
     - infer.py
     - preprocessing.py
@@ -30,9 +30,11 @@ A minimal working example of using the tool:
     - utils.py
     - tl/
       - \_\_init__.py
-    - notebooks/
-      - Task2b.ipynb
-      - 
+- notebooks/
+  - Task2b.ipynb
+  - 
+- raw_data_extraction/
+  - dataset5.ipynb
 
 ## Data
 
@@ -54,7 +56,8 @@ The data could found in [Google Drive](https://drive.google.com/drive/folders/10
   - num7_adata.h5ad
 
 ### Description
-
+- num*_adata.h5ad: Raw data (different formats) being converted to adata structure without any preprocessing. The code to obtain the h5ad raw data could be found in /raw_data_extraction/
+- PBMC_simulated_cnas_041025.h5ad: Raw labeled data get from the website
 
 
 ## APIs
