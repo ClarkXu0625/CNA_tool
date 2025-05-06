@@ -40,7 +40,7 @@ Dataset being used in this projects are dataset [3](https://www.ncbi.nlm.nih.gov
 )
 The data could found in [Google Drive](https://drive.google.com/drive/folders/10LGU_CHLHJkABwpyEqT1XuFGGef-xL7m?usp=sharing)
 
-### Data description
+### Data Structure
 - processed_data/
   - labeled_data/
     - num3_adata_filtered.h5ad
@@ -53,6 +53,7 @@ The data could found in [Google Drive](https://drive.google.com/drive/folders/10
   - num6_adata.h5ad
   - num7_adata.h5ad
 
+### Description
 
 
 
