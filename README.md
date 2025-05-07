@@ -49,7 +49,7 @@ CNA_Tool
   - data3.ipynb: concatenate raw dataset3 to a h5ad file
   - data5.ipynb: concatenate raw dataset5 to a h5ad file
   - data7.ipynb: concatenate raw dataset7 to a h5ad file
-  - map_gene_coordinates.ipynb
+  - map_gene_coordinates.ipynb: map chromosome coordinate in raw data
 
 ## Deliverables
 - Task 1: 
