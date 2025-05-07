@@ -24,7 +24,7 @@ A minimal working example of using the tool:
     adata = infer_cnas_from_scrna(adata)
 
 
-## code Structure
+## Code Structure
 CNA_Tool
 - src/cna_tool/
     - \_\_init__.py
