@@ -3,7 +3,7 @@ A tool to infer CNAs from scRNA-seq data.
 
 ## Table of Contents
 
-1. [Introduction](#What's-new-in-our-method?)
+1. [Introduction](#What's-new-in-our-method)
 2. [Setup](#setup)
 3. [Reproducing Results](#want-to-replicate-our-result)
 4. [Code Structure](#code-structure)
