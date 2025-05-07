@@ -71,8 +71,9 @@ CNA_Tool
     - tl/
       - \_\_init__.py
 - notebooks/
-  - Task2b_task4.ipynb
   - Task2b.ipynb
+  - Task2b.ipynb
+  - Task4.ipynb
   - sample_workflow.ipynb
 - raw_data_extraction/
   - data3.ipynb: concatenate raw dataset3 to a h5ad file
@@ -85,8 +86,8 @@ CNA_Tool
   - src/cna_tool: the package code
   - notbooks/sample_workflow.ipynb: section "Task 1"
 - Task 2
-  - Task 2a: notebooks/Task2a.ipynb
-  - Task 2b: notebooks/Task2b.ipynb
+  - Task 2a: notebooks/Task2a.ipynb: analyze performance of our method, compare with inferscnpy
+  - Task 2b: notebooks/Task2b.ipynb: Simulate from gold standard data, repeat evluation in task 2a
 - Task 3
   - notebooks/sample_workflow.ipynb: section "Task 3"
 - Task 4
