@@ -3,7 +3,7 @@ A tool to infer CNAs from scRNA-seq data.
 
 ## Table of Contents
 
-1. [Introduction](#What's-new-in-our-method)
+1. [Introduction](#whats-new-in-our-method)
 2. [Setup](#setup)
 3. [Reproducing Results](#want-to-replicate-our-result)
 4. [Code Structure](#code-structure)
@@ -15,7 +15,7 @@ A tool to infer CNAs from scRNA-seq data.
    7.1 [Function and Class Overview](#apis)
 
 
-## What's new in our method?
+## Whats new in our method?
 
 ### Memory-efficient inference:
 - Redesigned CNAInferer.infer() to use batched per-cell computation, avoiding the need to hold the entire normalized matrix in memory.
