@@ -26,6 +26,11 @@ A minimal working example of using the tool:
     adata = infer_cnas_from_scrna(adata)
 
 
+## Want to replicate our result?
+
+You may start with notebooks/sampleworkflow
+prerequisit: Open [labeled_data/](https://drive.google.com/drive/folders/10LGU_CHLHJkABwpyEqT1XuFGGef-xL7m), download num3_adata_filtered.h5ad , num5_adata_filtered.h5ad, and num7_adata_filtered.h5ad
+
 ## Code Structure
 CNA_Tool
 - src/cna_tool/
