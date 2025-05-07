@@ -29,7 +29,7 @@ A minimal working example of using the tool:
 ## Want to replicate our result?
 
 You may start with notebooks/sampleworkflow
-prerequisit: Open download num3_adata_filtered.h5ad , num5_adata_filtered.h5ad, num7_adata_filtered.h5ad, and PBMC_simulated_cnas_041025.h5ad from [labeled_data/](https://drive.google.com/drive/folders/10LGU_CHLHJkABwpyEqT1XuFGGef-xL7m), place it under /data. Then, you are good to go!
+prerequisit: Open download num3_adata_filtered.h5ad , num5_adata_filtered.h5ad, num7_adata_filtered.h5ad, and PBMC_simulated_cnas_041025.h5ad from [Google drive](https://drive.google.com/drive/folders/10LGU_CHLHJkABwpyEqT1XuFGGef-xL7m), place it under /data. Then, you are good to go!
 
 ## Code Structure
 CNA_Tool
