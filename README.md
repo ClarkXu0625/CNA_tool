@@ -46,7 +46,10 @@ CNA_Tool
   - Task2b.ipynb
   - sample_workflow.ipynb
 - raw_data_extraction/
-  - dataset5.ipynb
+  - data3.ipynb: concatenate raw dataset3 to a h5ad file
+  - data5.ipynb: concatenate raw dataset5 to a h5ad file
+  - data7.ipynb: concatenate raw dataset7 to a h5ad file
+  - map_gene_coordinates.ipynb
 
 ## Deliverables
 - Task 1: 
