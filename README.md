@@ -13,16 +13,10 @@ A tool to infer CNAs from scRNA-seq data.
 
 ### Flexible normalization options:
 - Supports both log₂-ratio and z-score normalization per gene using a diploid reference.
-- Log₂-ratio centers diploid regions and is ideal for detecting CNAs.
-- Z-score normalization controls for gene-specific variability and is robust when expression variance is uneven.
 
 ### Comparative novelty:
-- Unlike other tools such as inferCNVpy, which support only log₂-ratio normalization, our pipeline provides flexible normalization strategies tailored to different expression dynamics.
+- Unlike other tools such as infercnvpy, which support only log₂-ratio normalization, our pipeline provides flexible normalization strategies tailored to different expression dynamics.
 
-### Scalable to large iPSC datasets:
-- This memory-optimized pipeline was successfully applied to Task 3, where the input datasets are substantially larger than in prior tasks.
-
-*please read through the following content*
 
 
 ## Table of Contents
