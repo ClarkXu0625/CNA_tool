@@ -86,11 +86,11 @@ CNA_Tool
   - notbooks/sample_workflow.ipynb: section "Task 1"
 - Task 2
   - Task 2a: notebooks/Task2a.ipynb
-  - Task 2b: notebooks/Task2b_task4b.ipynb: section "Task2b"
+  - Task 2b: notebooks/Task2b.ipynb
 - Task 3
   - notebooks/sample_workflow.ipynb: section "Task 3"
 - Task 4
-  - notebooks/Task2b_task4b.ipynb: section "Task4"
+  - notebooks/Task4b.ipynb: section "Task4"
 
 ## Data Used
 
@@ -110,6 +110,7 @@ All data used for analysis could found in [Google Drive](https://drive.google.co
     - adata5_results.h5ad
     - adata7_results.h5ad
   - PBMC_simulated_cnas_041025.h5ad
+  - PBMC_simulated_cnas_task2b_v1.h5ad
   - num3_adata.h5ad
   - num5_adata.h5ad
   - num7_adata.h5ad
@@ -117,6 +118,7 @@ All data used for analysis could found in [Google Drive](https://drive.google.co
 ### Description
 - num*_adata.h5ad: Raw data (different formats) being converted to adata structure without any preprocessing. The code to obtain the h5ad raw data could be found in /raw_data_extraction/. These datasets are the raw data that needs downstream process (i.e. chromosome coordinate assignment) and will be used in task 3.
 - PBMC_simulated_cnas_041025.h5ad: Raw labeled data that is used for task 1 and 2a. You may also see test_adata.h5ad in some jupyter notebooks. They are the same thing. Just change the name from "test_adata.h5ad" to "PBMC_simulated_cnas_041025.h5ad"
+- PBMC_simulated_cnas_task2b_v1.h5ad: simulated data from task 2b
 - labaled_data/num*_adata_filtered.h5ad: Raw data being processed to add gene coordinate. These data are used to perform task 3.
 - cna_profile_results/adata*_results.h5ad: CNA inferred result is generated and stored in .obs['cna_profile']. These datasets are generated from task 3.
 
