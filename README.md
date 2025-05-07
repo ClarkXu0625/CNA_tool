@@ -64,13 +64,13 @@ prerequisit: Open download num3_adata_filtered.h5ad , num5_adata_filtered.h5ad, 
 ## Code Structure
 CNA_Tool
 - src/cna_tool/
-    - \_\_init__.py
-    - infer.py
+    - \_\_init__.py: make sure all functions/ classes could be called by import cna_tool
+    - infer.py: infer_cnas_from_scrna, the main pipline function
     - preprocessing.py
     - cna_inference.py
     - utils.py
     - tl/
-      - \_\_init__.py
+      - \_\_init__.py: functions used in result evaluation
 - notebooks/
   - Task2b.ipynb
   - Task2b.ipynb
