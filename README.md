@@ -1,6 +1,27 @@
 # CNA_tool
 A tool to infer CNAs from scRNA-seq data.
 
+## What's new in our method?
+
+### Memory-efficient inference:
+- Redesigned CNAInferer.infer() to use batched per-cell computation, avoiding the need to hold the entire normalized matrix in memory.
+- Integrated active garbage collection to release intermediate memory, significantly reducing peak memory usage for large-scale datasets.
+
+### Timepoint-aware CNA inference:
+- Introduced infer_cna_by_timepoint(), which performs independent CNA inference per timepoint or sample group using a shared diploid control.
+- Enables more interpretable temporal analysis and avoids monolithic memory consumption.
+
+### Flexible normalization options:
+- Supports both log₂-ratio and z-score normalization per gene using a diploid reference.
+- Log₂-ratio centers diploid regions and is ideal for detecting CNAs.
+- Z-score normalization controls for gene-specific variability and is robust when expression variance is uneven.
+
+### Comparative novelty:
+- Unlike other tools such as inferCNVpy, which support only log₂-ratio normalization, our pipeline provides flexible normalization strategies tailored to different expression dynamics.
+
+### Scalable to large iPSC datasets:
+- This memory-optimized pipeline was successfully applied to Task 3, where the input datasets are substantially larger than in prior tasks.
+
 *please read through the following content*
 
 
