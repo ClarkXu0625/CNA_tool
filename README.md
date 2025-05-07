@@ -15,6 +15,9 @@ A tool to infer CNAs from scRNA-seq data
 A minimal working example of using the tool:
 
     import scanpy as sc
+    import sys
+    sys.path.append('../src')
+    import cna_tool
     from cna_tool import infer_cnas_from_scrna
 
     adata = sc.read_h5ad("PBMC_simulated_cnas.h5ad")
@@ -62,11 +65,17 @@ The data could found in [Google Drive](https://drive.google.com/drive/folders/10
 
 
 ## APIs
-
+Import the functions in the following format
+    import sys
+    sys.path.append('src')
+    import cna_tool
+    from cna_tool import infer_cnas_from_scrna
+    
 For the following function/classes, please type help(function) to get detailed description. Sample usage:
 
-    help(cna_tool.infer.infer_cnas_from_scrna)
+    help(infer_cnas_from_scrna)
 
+You may also view [Tutorial](Tutorial.ipynb) for api call
 
 | Function/Classes | Parameters | Description | 
 | ---------- | ---- | -------------------------- |
