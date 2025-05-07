@@ -44,14 +44,18 @@ CNA_Tool
 
 ## Deliverables
 - Task 1: 
-  - src/cna_tool contains the package code
+  - src/cna_tool: the package code
+  - notbooks/sample_workflow.ipynb: section "Task 1"
 - Task 2
+  - Task 2a: notebooks/task2a.ipynb
+  - Task 2b: notebooks/task2b.ipynb
 - Task 3
+  - notebooks/sample_workflow.ipynb: section "Task 3"
 - Task 4
 
 ## Data Used
 
-Dataset being used in this projects are dataset [3](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263152), [4](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277604), [5](//www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE194214), [6](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131736), and [7](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE195467
+Dataset being used in this projects are dataset [3](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263152), [5](//www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE194214), and [7](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE195467
 )
 All data used for analysis could found in [Google Drive](https://drive.google.com/drive/folders/10LGU_CHLHJkABwpyEqT1XuFGGef-xL7m?usp=sharing)
 
