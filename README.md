@@ -37,8 +37,9 @@ CNA_Tool
     - tl/
       - \_\_init__.py
 - notebooks/
+  - Task2b_task4.ipynb
   - Task2b.ipynb
-  - 
+  - sample_workflow.ipynb
 - raw_data_extraction/
   - dataset5.ipynb
 
@@ -47,11 +48,12 @@ CNA_Tool
   - src/cna_tool: the package code
   - notbooks/sample_workflow.ipynb: section "Task 1"
 - Task 2
-  - Task 2a: notebooks/task2a.ipynb
-  - Task 2b: notebooks/task2b.ipynb
+  - Task 2a: notebooks/Task2a.ipynb
+  - Task 2b: notebooks/Task2b_task4b.ipynb: section "Task2b"
 - Task 3
   - notebooks/sample_workflow.ipynb: section "Task 3"
 - Task 4
+  - notebooks/Task2b_task4b.ipynb: section "Task4"
 
 ## Data Used
 
