@@ -1,5 +1,7 @@
 # CNA_tool
-A tool to infer CNAs from scRNA-seq data
+A tool to infer CNAs from scRNA-seq data. 
+
+*please read through the following content*
 
 
 ## Setup:
