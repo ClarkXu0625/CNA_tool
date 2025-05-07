@@ -84,7 +84,7 @@ All data used for analysis could found in [Google Drive](https://drive.google.co
 
 ### Description
 - num*_adata.h5ad: Raw data (different formats) being converted to adata structure without any preprocessing. The code to obtain the h5ad raw data could be found in /raw_data_extraction/. These datasets are the raw data that needs downstream process (i.e. chromosome coordinate assignment) and will be used in task 3.
-- PBMC_simulated_cnas_041025.h5ad: Raw labeled data that is used for task 1 and 2a, in some jupyter notebooks, you may also see test_adata.h5ad, which is the same thing
+- PBMC_simulated_cnas_041025.h5ad: Raw labeled data that is used for task 1 and 2a. You may also see test_adata.h5ad in some jupyter notebooks. They are the same thing. Just change the name from "test_adata.h5ad" to "PBMC_simulated_cnas_041025.h5ad"
 - labaled_data/num*_adata_filtered.h5ad: Raw data being processed to add gene coordinate. These data are used to perform task 3.
 - cna_profile_results/adata*_results.h5ad: CNA inferred result is generated and stored in .obs['cna_profile']. These datasets are generated from task 3.
 
