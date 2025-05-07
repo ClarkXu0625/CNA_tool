@@ -83,3 +83,5 @@ For the following function/classes, please type help(function) to get detailed d
 | utils.map_gene_coordinates | adata, adata | Map the gene coordinate from one adata (labeled) to another, creating .var columns "chromosome", "start", and "end" |
 | preprocessing.annotation_preprocess | adata | full preprocess pipeline: filter by counts and mt content; normalize; perform clustering, and umap |
 | preprocessing.simple_preprocess | adata | normalize and log transfer the adata |
+| tl.evaluate_cna_call |adata, truth_col, pred_col |  Evaluates the performance of CNA prediction by comparing predicted CNA profiles with simulated ground truth labels |
+| tl.run_cna_evaluation | adata, params | Runs the full CNA inference and evaluation pipeline using the provided parameters |
