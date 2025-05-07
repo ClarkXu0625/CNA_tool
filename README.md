@@ -8,10 +8,11 @@ A tool to infer CNAs from scRNA-seq data
     conda activate cna_tool
     cd CNA_tool
     pip install scanpy python-igraph leidenalg scipy numpy umap-learn leidenalg matplotlib scikit-learn mygene pandas
+    git clone https://github.com/ClarkXu0625/CNA_tool.git
+    cd CNA_tool
 
 
 A minimal working example of using the tool:
-
 
     import scanpy as sc
     from cna_tool import infer_cnas_from_scrna
