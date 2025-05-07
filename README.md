@@ -8,15 +8,14 @@ A tool to infer CNAs from scRNA-seq data.
 
 1. [Introduction](#cna_tool)
 2. [Setup](#setup)
-3. [Minimal Working Example](#setup)
-4. [Reproducing Results](#want-to-replicate-our-result)
-5. [Code Structure](#code-structure)
-6. [Deliverables](#deliverables)
-7. [Data Used](#data-used)  
-   7.1 [Data Structure](#data-structure)  
-   7.2 [Description](#description)
-8. [APIs](#apis)  
-   8.1 [Function and Class Overview](#apis)
+3. [Reproducing Results](#want-to-replicate-our-result)
+4. [Code Structure](#code-structure)
+5. [Deliverables](#deliverables)
+6. [Data Used](#data-used)  
+   6.1 [Data Structure](#data-structure)  
+   6.2 [Description](#description)
+7. [APIs](#apis)  
+   7.1 [Function and Class Overview](#apis)
 
 
 ## Setup:
