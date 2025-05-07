@@ -18,7 +18,7 @@ A minimal working example of using the tool:
 
     import scanpy as sc
     import sys
-    sys.path.append('../src')
+    sys.path.append('.src')
     import cna_tool
     from cna_tool import infer_cnas_from_scrna
 
@@ -42,11 +42,19 @@ CNA_Tool
 - raw_data_extraction/
   - dataset5.ipynb
 
-## Data
+## Deliverables
+- Task 1: 
+  - src/cna_tool contains the package code
+- Task 2
+- Task 3
+- Task 4
+
+## Data Used
 
 Dataset being used in this projects are dataset [3](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263152), [4](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277604), [5](//www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE194214), [6](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131736), and [7](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE195467
 )
-The data could found in [Google Drive](https://drive.google.com/drive/folders/10LGU_CHLHJkABwpyEqT1XuFGGef-xL7m?usp=sharing)
+All data used for analysis could found in [Google Drive](https://drive.google.com/drive/folders/10LGU_CHLHJkABwpyEqT1XuFGGef-xL7m?usp=sharing)
+
 
 ### Data Structure
 - processed_data/
@@ -64,6 +72,8 @@ The data could found in [Google Drive](https://drive.google.com/drive/folders/10
 ### Description
 - num*_adata.h5ad: Raw data (different formats) being converted to adata structure without any preprocessing. The code to obtain the h5ad raw data could be found in /raw_data_extraction/
 - PBMC_simulated_cnas_041025.h5ad: Raw labeled data get from the website
+  - labaled_data/num*_adata_filtered.h5ad: Raw data being processed to add gene coordinate
+  - cna_profile_results/adata*_results.h5ad: CNA inferred result is generated and stored in .obs['cna_profile']
 
 
 ## APIs
