@@ -72,6 +72,8 @@ For the following function/classes, please type help(function) to get detailed d
 | infer.infer_cnas_from_scrna | adata, cna_label_col=None, diploid_labels=[''], control_mask=None, gtf_df=None, window=50, gain_thr=0.15, loss_thr=-0.15, norm_method='zscore', require_gene_coords=True| Infers DNA copy number alterations (CNAs) from an AnnData object containing scRNA-seq data. |
 | CNAInferer | adata, control_adata |main object |
 | CNAInferer.infer | self |Infer CNA from given adata |
+| prepare_control | adata, time_key, ctrl_label, min_genes, n_subsample | Extracts and preprocesses control cells from an AnnData object |
+| infer_cna_by_timepoint | adata, control, gtf_df=None, time_key, exclude, gain_thr, loss_thr, window | Infers Copy Number Alterations (CNAs) for each timepoint relative to a control dataset |
 | utils.select_control_mask| adata, obs_key: str, control_values | Build a boolean mask selecting control (diploid) cells| 
 | utils.ensure_gene_coords | adata, gtf_df: pd.DataFrame=None | If 'chromosome','start','end' are present in adata.var, do nothing. Else merge with user‑supplied gtf_df. Else fetch missing via pybiomart (if installed). Drops any genes still lacking coords.|
 | utils.normalize_expr | adata, control_adata, method='log2_ratio' | Gene‐specific normalization against diploid control, method could be either zscore or log2_ratio |
