@@ -1,6 +1,20 @@
 # CNA_tool
 A tool to infer CNAs from scRNA-seq data.
 
+## Table of Contents
+
+1. [Introduction](#What's-new-in-our-method?)
+2. [Setup](#setup)
+3. [Reproducing Results](#want-to-replicate-our-result)
+4. [Code Structure](#code-structure)
+5. [Deliverables](#deliverables)
+6. [Data Used](#data-used)  
+   6.1 [Data Structure](#data-structure)  
+   6.2 [Description](#description)
+7. [APIs](#apis)  
+   7.1 [Function and Class Overview](#apis)
+
+
 ## What's new in our method?
 
 ### Memory-efficient inference:
@@ -16,21 +30,6 @@ A tool to infer CNAs from scRNA-seq data.
 
 ### Comparative novelty:
 - Unlike other tools such as infercnvpy, which support only log₂-ratio normalization, our pipeline provides flexible normalization strategies tailored to different expression dynamics.
-
-
-
-## Table of Contents
-
-1. [Introduction](#cna_tool)
-2. [Setup](#setup)
-3. [Reproducing Results](#want-to-replicate-our-result)
-4. [Code Structure](#code-structure)
-5. [Deliverables](#deliverables)
-6. [Data Used](#data-used)  
-   6.1 [Data Structure](#data-structure)  
-   6.2 [Description](#description)
-7. [APIs](#apis)  
-   7.1 [Function and Class Overview](#apis)
 
 
 ## Setup:
