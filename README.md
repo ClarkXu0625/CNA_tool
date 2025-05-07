@@ -66,9 +66,9 @@ CNA_Tool
 - src/cna_tool/
     - \_\_init__.py: make sure all functions/ classes could be called by import cna_tool
     - infer.py: infer_cnas_from_scrna, the main pipline function
-    - preprocessing.py
-    - cna_inference.py
-    - utils.py
+    - preprocessing.py: preprocessing functions
+    - cna_inference.py: CNAInfer classes and functions to infer from timepoints
+    - utils.py: helper functions used during cna inference
     - tl/
       - \_\_init__.py: functions used in result evaluation
 - notebooks/
