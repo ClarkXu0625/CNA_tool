@@ -9,13 +9,13 @@ def annotation_preprocess(adata, n_neighbors=20, n_pcs=10, plot=True):
     Preprocesses an AnnData object by filtering, normalizing, and computing embeddings for clustering and visualization.
 
     Parameters:
-    - adata (AnnData): Input AnnData object.
-    - n_neighbors (int, optional): Number of neighbors for the k-nearest neighbors graph (default: 20).
-    - n_pcs (int, optional): Number of principal components to use in PCA (default: 10).
-    - plot (bool, optional): Whether to display the UMAP plot (default: True).
+    - adata (AnnData): Input AnnData object (raw counts).
+    - n_neighbors (int): Number of neighbors to use when building the neighborhood graph (default: 20).
+    - n_pcs (int): Number of principal components to use for PCA and neighbors (default: 10).
+    - plot (bool): Whether to plot UMAP with Leiden clusters (default: True).
 
     Returns:
-    - AnnData: Processed AnnData object with computed embeddings.
+    - AnnData: A processed AnnData object with filtering, normalization, PCA, neighbors, clustering, and UMAP embeddings.
     """
     data_processed = adata.copy()
     data_processed.var_names_make_unique()
@@ -60,6 +60,17 @@ def annotation_preprocess(adata, n_neighbors=20, n_pcs=10, plot=True):
     return data_processed
 
 def simple_preprocess(adata):
+    """
+    Applies basic preprocessing to an AnnData object:
+    - Normalizes total counts per cell to a fixed target (10,000),
+    - Applies log1p transformation to stabilize variance.
+
+    Parameters:
+    - adata: AnnData object containing raw count data.
+
+    Returns:
+    - adata: Preprocessed AnnData object with normalized and log-transformed expression values.
+    """
     sc.pp.normalize_total(adata, target_sum=1e4)
     sc.pp.log1p(adata)
     return adata
