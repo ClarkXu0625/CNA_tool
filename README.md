@@ -72,10 +72,10 @@ CNA_Tool
     - tl/
       - \_\_init__.py: functions used in result evaluation
 - notebooks/
-  - Task2b.ipynb
-  - Task2b.ipynb
-  - Task4.ipynb
-  - sample_workflow.ipynb
+  - Task2a.ipynb: evaluate benchmark dataset
+  - Task2b.ipynb: simulate new datasets from benchmark data and evluate with same approch from task 2a
+  - Task4.ipynb: predict CNA impact
+  - sample_workflow.ipynb: infer cna to benchmark data, and selected data for task3, visualize selected data cna
 - raw_data_extraction/
   - data3.ipynb: concatenate raw dataset3 to a h5ad file
   - data5.ipynb: concatenate raw dataset5 to a h5ad file
