@@ -62,6 +62,11 @@ The data could found in [Google Drive](https://drive.google.com/drive/folders/10
 
 ## APIs
 
+For the following function/classes, please type help(function) to get detailed description. Sample usage:
+
+    help(cna_tool.infer.infer_cnas_from_scrna)
+
+
 | Function/Classes | Parameters | Description | 
 | ---------- | ---- | -------------------------- |
 | infer.infer_cnas_from_scrna | adata, cna_label_col=None, diploid_labels=[''], control_mask=None, gtf_df=None, window=50, gain_thr=0.15, loss_thr=-0.15, norm_method='zscore', require_gene_coords=True| Infers DNA copy number alterations (CNAs) from an AnnData object containing scRNA-seq data. |
