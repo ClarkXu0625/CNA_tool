@@ -38,7 +38,7 @@ CNA_Tool
 
 ## Data
 
-Dataset being used in this projects are dataset [3](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263152), [4](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277604), [6](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131736), and [7](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE195467
+Dataset being used in this projects are dataset [3](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263152), [4](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE277604), [5](//www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE194214), [6](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE131736), and [7](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE195467
 )
 The data could found in [Google Drive](https://drive.google.com/drive/folders/10LGU_CHLHJkABwpyEqT1XuFGGef-xL7m?usp=sharing)
 
